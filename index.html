@@ -1,0 +1,366 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>BIG Info Terkini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Swiss-style ledger. Hairline dividers, one gold accent from the BIG logo. Single light theme by design. */
+:root{
+  --bg:#F6F5F1; --ink:#17191A; --ink2:#55595C; --line:#D9D7CF; --soft:#ECEAE3; --surf:#FFFFFF;
+  --gold:#8A5F00; --goldfill:#C99A1E; --badge:#FFFFFF;
+  --ok:#2F7D5B; --warn:#9A6A12; --crit:#B23A2B;
+  --ok-bg:rgba(47,125,91,.13); --warn-bg:rgba(183,121,31,.16); --crit-bg:rgba(178,58,43,.12);
+  --n1:#E3EEF2; --n2:#BBD6E0; --n3:#8DBBCC; --n4:#3F86A4; --n5:#1B5E7E;
+  --n1t:#17191A; --n2t:#17191A; --n3t:#17191A; --n4t:#FFFFFF; --n5t:#FFFFFF;
+  --bar:#2F6F9B; --base:#8A8F93;
+  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-body:'Public Sans','Segoe UI',system-ui,sans-serif;
+  --f-data:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.55;margin:0;padding:20px 16px 56px}
+img{max-width:100%}
+[hidden]{display:none!important}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:22px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+.sub{color:var(--ink2);font-size:13px;margin:4px 0 0;max-width:72ch}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{width:52px;height:52px;border-radius:10px;background:var(--badge);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 1px var(--line)}
+.logo img{width:40px;height:40px;object-fit:contain;display:block}
+.brand h1{font-size:28px;font-weight:700}
+.brand p{margin:2px 0 0;color:var(--ink2);font-size:13px}
+.brand .lastup{font:500 11.5px var(--f-data);color:var(--ink2);margin-top:3px}
+.brand .lastup b{color:var(--ok);font-weight:600}
+.tools{display:flex;gap:6px;align-self:flex-start;flex-shrink:0;margin-top:2px}
+.tools .seg{border-radius:6px}
+.tools .seg button{padding:3px 9px;min-height:28px;font-size:11.5px;font-weight:500}
+.tools .seg button[aria-pressed="true"]{background:var(--soft);color:var(--ink);font-weight:600}
+@media (max-width:560px){header{flex-wrap:nowrap;align-items:flex-start}.tools{flex-direction:column;align-items:flex-end;gap:5px}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:transparent;border:0;padding:7px 12px;min-height:36px;font-size:13px;font-weight:600;color:var(--ink2)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.panel{padding-top:24px;display:flex;flex-direction:column;gap:24px}
+.ico{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--ic) 16%,transparent);color:var(--ic);flex-shrink:0}
+.ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico.sm{width:28px;height:28px}.ico.sm svg{width:16px;height:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 16px;font-weight:600;min-height:40px;display:inline-flex;align-items:center;gap:8px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip small{font:500 11px var(--f-data);margin-left:2px;opacity:.75}
+.flag{display:inline-flex;width:24px;height:16px;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(128,128,128,.45);flex-shrink:0}.flag svg{width:100%;height:100%;display:block}
+.sec-head{margin-bottom:12px}
+.src{display:flex;gap:6px 12px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.src a{color:var(--gold);font-weight:600;overflow-wrap:anywhere}
+.age{font:600 11px var(--f-data);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.age.ok{background:var(--ok-bg);color:var(--ok)}.age.warn{background:var(--warn-bg);color:var(--warn)}.age.crit{background:var(--crit-bg);color:var(--crit)}.age.na{background:var(--soft);color:var(--ink2)}
+.review{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--ink2);padding:10px 14px;background:var(--surf);border:1px solid var(--line);border-radius:8px}
+.review b{color:var(--ink);font-weight:600}
+.review>span:not(.ico){min-width:0;flex:1 1 240px}
+.legend{display:flex;gap:8px 12px;flex-wrap:wrap;font-size:12px;color:var(--ink2);align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));border-top:1px solid var(--line)}
+.stat{padding:16px 18px 16px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:5px;min-width:0}
+.lab{font-size:13px;font-weight:600;color:var(--ink2)}
+.num{font-family:var(--f-display);font-weight:700;font-size:32px;line-height:1.05;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ctxt{font-size:12.5px;color:var(--ink2)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:28px}
+.hbars{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.hrow{display:grid;grid-template-columns:minmax(96px,160px) 1fr 60px;gap:10px;align-items:center;font-size:13px}
+.track{position:relative;height:12px;background:var(--soft);border-radius:2px;overflow:visible}
+.track i{display:block;height:100%;background:var(--bar);border-radius:2px}
+.hrow b{font:600 12.5px var(--f-data);text-align:right}
+.stack{display:flex;height:16px;gap:2px;margin-top:12px}
+.stack i{display:block;height:100%}
+.sleg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink2);margin-top:8px}
+.sleg i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.big{font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1}
+.note{font-size:12.5px;color:var(--ink2);max-width:86ch;margin:10px 0 0}
+.tscroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:12px;color:var(--ink2);font-weight:600;text-align:left;padding:6px 12px 6px 0;border-bottom:1px solid var(--ink)}
+td{padding:9px 12px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td a{color:var(--gold);font-weight:600;overflow-wrap:anywhere}
+.tag{display:inline-block;font:600 11px var(--f-data);padding:2px 8px;border-radius:4px;white-space:nowrap;background:var(--soft);color:var(--ink2)}
+.tag.ex{background:var(--warn-bg);color:var(--warn)}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.btn{border:1px solid var(--line);background:var(--surf);border-radius:8px;padding:8px 14px;min-height:40px;font-weight:600}
+.btn.sm{min-height:32px;padding:4px 11px;font-size:12.5px}
+.empty{padding:20px 0;color:var(--ink2);max-width:60ch}
+/* info popovers and notes */
+details.info{position:relative;display:inline-block;vertical-align:middle;margin-left:8px;font-family:var(--f-body)}
+details.info>summary{list-style:none;cursor:pointer;width:20px;height:20px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font:italic 700 12px/1 Georgia,serif;color:var(--ink2);background:var(--surf)}
+details.info>summary::-webkit-details-marker{display:none}
+details.info[open]>summary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+details.info .tipbox{position:absolute;z-index:1300;top:28px;left:-12px;width:min(360px,calc(100vw - 32px));background:var(--surf);border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 28px rgba(0,0,0,.16);padding:12px 14px;font-size:12.5px;font-weight:400;line-height:1.5;color:var(--ink);display:flex;flex-direction:column;gap:8px;text-align:left;text-transform:none;letter-spacing:0}
+details.info .tipbox p{margin:0}
+details.info .tipbox .src{margin:0;padding-top:8px;border-top:1px solid var(--line)}
+@media (max-width:560px){details.info{position:static}details.info .tipbox{left:16px;right:16px;width:auto;top:auto;margin-top:8px}}
+h2 .age,h3 .age{margin-left:8px;vertical-align:middle;font-family:var(--f-data)}
+details.nb{margin-top:10px;font-size:12.5px}
+details.nb>summary{cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--ink2);list-style:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px 2px 4px}
+details.nb>summary::-webkit-details-marker{display:none}
+details.nb>summary:before{content:"i";font:italic 700 11px/1 Georgia,serif;width:16px;height:16px;border-radius:50%;background:var(--soft);display:inline-flex;align-items:center;justify-content:center}
+details.nb.warn>summary{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+details.nb.warn>summary:before{content:"!";font-style:normal;background:var(--warn-bg)}
+details.nb>div{margin-top:8px;max-width:86ch;color:var(--ink2)}
+details.more>summary{cursor:pointer;font:700 16px var(--f-display);list-style:none;display:flex;align-items:center;gap:8px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary:after{content:"+";font:600 16px var(--f-data);color:var(--ink2)}
+details.more[open]>summary:after{content:"–"}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:10px}
+.ph{margin:0;display:flex;flex-direction:column;gap:5px;min-width:0}
+.ph figcaption{font-size:12px;color:var(--ink2);line-height:1.35}
+.phb{position:relative;aspect-ratio:4/3;max-width:100%;border-radius:6px;display:flex;align-items:center;justify-content:center;background:var(--soft)}
+.phb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:6px}
+.phb a.full{position:absolute;inset:0;border-radius:6px}
+/* News */
+.alert{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--crit-bg);box-shadow:inset 3px 0 0 var(--crit);font-size:13.5px}
+.alert>span:not(.ico){flex:1 1 260px;min-width:0}
+.alert b.k{color:var(--crit)}
+.alert .ctxt{display:block;margin-top:1px}
+.kdot{width:8px;height:8px;border-radius:50%;background:var(--crit);flex-shrink:0}
+.ntools{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:6px}
+.search{position:relative;flex:1 1 240px;min-width:0;max-width:420px}
+.search input{width:100%;background:var(--surf);border:1px solid var(--line);border-radius:8px;padding:8px 12px 8px 34px;min-height:40px}
+.search input::placeholder{color:var(--ink2)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:none;stroke:var(--ink2);stroke-width:1.9;stroke-linecap:round}
+.fchips{display:flex;gap:6px;flex-wrap:wrap}
+.fchip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 12px;min-height:34px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.fchip small{font:500 10.5px var(--f-data);margin-left:4px;opacity:.8}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.month{font:600 11.5px var(--f-data);letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);padding:20px 0 8px;border-bottom:1px solid var(--ink)}
+.month:first-child{padding-top:6px}
+.nitem{padding:16px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px;scroll-margin-top:16px}
+.nitem:focus{outline:none}
+.nitem:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.nitem.kec{box-shadow:inset 3px 0 0 var(--crit);padding-left:14px}
+.nmeta{display:flex;gap:6px 10px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink2)}
+.lv{display:inline-block;font:600 11px var(--f-body);padding:2px 8px;border-radius:4px;white-space:nowrap}
+.lv.kec{background:var(--crit-bg);color:var(--crit)}.lv.amr{background:var(--warn-bg);color:var(--warn)}.lv.mkl{background:var(--soft);color:var(--ink2)}
+.nitem h3{font-size:17px}
+.nbody{margin:0;max-width:70ch;font-size:14px}
+.nitem .gal{margin-top:2px;max-width:640px}
+.upd{margin:0;max-width:70ch;font-size:13px;color:var(--ink2);border-left:2px solid var(--goldfill);padding:1px 0 1px 10px}
+.upd b{color:var(--ink);font-weight:600}
+.nact{display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.nact a{color:var(--gold);font-weight:600;overflow-wrap:anywhere}
+.linkbox{font:12px var(--f-data);background:var(--surf);border:1px solid var(--line);border-radius:6px;padding:6px 8px;width:min(100%,420px)}
+/* Footer */
+footer{margin-top:44px;border-top:1px solid var(--ink);padding-top:16px;font-size:12.5px;color:var(--ink2)}
+.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px 28px}
+.foot div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.foot b{color:var(--ink);font-weight:600;font-size:13px}
+.foot .sel{font-family:var(--f-data);font-size:12.5px;color:var(--ink);user-select:all;overflow-wrap:anywhere}
+.disc{margin:16px 0 0;max-width:90ch;padding-top:12px;border-top:1px solid var(--line)}
+.copy{margin:8px 0 0}
+.lk{background:none;border:0;padding:0;color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.ed{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);scroll-margin-top:16px}
+.ed>summary{font-size:15px;color:var(--ink)}
+.ed .edb{display:flex;flex-direction:column;gap:12px;margin-top:10px;max-width:82ch;color:var(--ink2);font-size:13px}
+.ed h4{margin:0;font:600 13px var(--f-body);color:var(--ink)}
+.ed ul{margin:4px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.ed p{margin:0}
+@media (pointer:coarse){.fchip{min-height:40px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:560px){.brand h1{font-size:23px}.hrow{grid-template-columns:90px 1fr 54px}.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.err{padding:20px 0;max-width:60ch}.err b{display:block;font:700 16px var(--f-display);margin-bottom:4px}
+</style>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo"><img src="data:image/png;base64,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" alt="Logo BIG"></div>
+      <div><h1>BIG</h1><p id="tagline"></p><div class="lastup" id="lastup"></div></div>
+    </div>
+    <div class="tools"><div class="seg" role="group" aria-label="Bahasa / Language" id="langSeg"></div></div>
+  </header>
+  <div id="alertBar"></div>
+  <main class="panel" id="main"></main>
+  <footer id="foot"></footer>
+</div>
+<script src="info-negara.js"></script>
+<script>
+const LS = {get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const state = {lang: LS.get('big-lang')==='en' ? 'en' : 'bm', country:'all', infoView:'news', srcF:'all', q:''};
+const ICON = {
+  tent:'<path d="M3 20L12 4l9 16z"/><path d="M12 4v16M9 20l3-7 3 7"/>',
+  wave:'<path d="M3 15c3-3 6 3 9 0s6 3 9 0M3 10c3-3 6 3 9 0s6 3 9 0"/>',
+  tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1"/>',
+  bowl:'<path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c0-2 2-2 2-4M14 8c0-2 2-2 2-4"/>',
+  person:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/>',
+  child:'<circle cx="12" cy="9" r="5"/><path d="M9.5 9.5h.01M14.5 9.5h.01M10 12c1 1 3 1 4 0"/><path d="M5 21c1-4 4-5 7-5s6 1 7 5"/>',
+  cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+  bandage:'<rect x="2" y="8" width="20" height="8" rx="4" transform="rotate(-35 12 12)"/><path d="M10 10l4 4"/>',
+  press:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+  truck:'<path d="M2 6h12v10H2zM14 10h5l3 3v3h-8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+  home:'<path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/>',
+  coin:'<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.5 5-1.5 5 0s-5 1.5-5 3 5 1.5 5 0"/>',
+  check:'<circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/>',
+  bell:'<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>'
+};
+const x = (bm,en) => state.lang==='bm' ? bm : en;
+const L = a => Array.isArray(a) ? a[state.lang==='bm'?0:1] : a;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => Number(n).toLocaleString('en-US');
+const $ = id => document.getElementById(id);
+const flag = k => `<span class="flag"><svg viewBox="0 0 30 20" aria-hidden="true">${FLAG[k]}</svg></span>`;
+const svg = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>`;
+const ico = (k,c,sm) => `<span class="ico${sm?' sm':''}" style="--ic:${c}">${svg(k)}</span>`;
+const stat = (icon,color,label,num,ctx) => `<div class="stat"><div class="ico" style="--ic:${color}">${svg(icon)}</div><div class="lab">${label}</div><div class="num">${num}</div><div class="ctxt">${ctx}</div></div>`;
+const info = html => `<details class="info"><summary aria-label="${x('Maklumat lanjut','More information')}" title="${x('Maklumat lanjut','More information')}">i</summary><div class="tipbox">${html}</div></details>`;
+const nb = (h, warn) => `<details class="nb${warn?' warn':''}"><summary>${warn?x('Nota data','Data note'):x('Nota','Note')}</summary><div>${h}</div></details>`;
+const bars = (rows,max,dec) => `<div class="hbars">${rows.map(([n,v])=>`<div class="hrow"><span>${n}</span><div class="track"><i style="width:${v/max*100}%"></i></div><b>${dec?v.toFixed(dec):fmt(v)}</b></div>`).join('')}</div>`;
+const stackBar = (rows,unit) => `<div class="stack">${rows.map(([l,n,c])=>`<i title="${l}: ${unit(n)}" style="flex:${n};background:${c}"></i>`).join('')}</div><div class="sleg">${rows.map(([l,n,c])=>`<span><i style="background:${c}"></i>${l}: ${unit(n)}</span>`).join('')}</div>`;
+const locale = () => state.lang==='bm' ? 'ms-MY' : 'en-GB';
+const fmtDate = iso => { if(!iso) return ''; const d = new Date(iso+'T00:00:00'); return isNaN(d) ? iso : d.toLocaleDateString(locale(),{day:'numeric',month:'short',year:'numeric'}); };
+const fmtMonth = iso => new Date(iso.slice(0,7)+'-01T00:00:00').toLocaleDateString(locale(),{month:'long',year:'numeric'});
+const ORDER = ['gaza','lebanon','aceh','mali'];
+
+/* ===== Public news: permanent archive; public text and donor-safe media only ===== */
+const pTitle = n => n.pub && n.pub.title ? L(n.pub.title) : L(n.title);
+const pBody = n => n.pub && n.pub.body ? L(n.pub.body) : L(n.body);
+const pPlace = n => n.area ? AREA[n.area][state.lang] : COUNTRY[n.country][state.lang];
+const pMedia = n => (n.media||[]).filter(m => m.src && m.donor && !m.sens);
+const lastDate = n => [n.at, ...(n.upd||[]).map(u => u.at)].sort().pop();
+const allPub = () => NEWS.filter(n => n.public);
+function pubNews(opt){
+  const o = Object.assign({c:state.country, s:state.srcF, q:state.q}, opt||{});
+  const q = o.q.trim().toLowerCase();
+  return allPub().filter(n => (o.c==='all' || n.country===o.c) && (o.s==='all' || srcKind(n)===o.s)
+    && (!q || [pTitle(n), pBody(n), pPlace(n), newsSrc(n)].join(' ').toLowerCase().includes(q)));
+}
+function pTile(m){
+  return `<figure class="ph"><div class="phb"><img src="${m.src}" alt="${esc(L(m.cap))}" loading="lazy" decoding="async"><a class="full" href="${m.src}" target="_blank" rel="noopener" aria-label="${x('Buka foto penuh','Open full photo')}: ${esc(L(m.cap))}"></a></div><figcaption>${esc(L(m.cap))}</figcaption></figure>`;
+}
+function srcHTML(n){
+  if(n.src==='field') return `${x('Sumber','Source')}: ${esc(newsSrc(n))}`;
+  const s = SRC[n.src], url = n.url || s.url;
+  const label = s.type==='media' ? x(`Baca artikel penuh di ${s.name}`,`Read the full article at ${s.name}`) : esc(s.name);
+  return `${x('Sumber','Source')}: <a href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
+}
+function pItem(n){
+  const media = pMedia(n), upd = n.upd || [];
+  const verif = n.src==='field' && n.verif ? `<span class="tag ${n.verif==='sah'?'ok':'ex'}">${L(VERIF[n.verif])}</span>` : '';
+  return `<article class="nitem${n.lvl==='kec'?' kec':''}" id="news-${n.id}" tabindex="-1">
+    <div class="nmeta"><span class="lv ${n.lvl}">${L(LV[n.lvl])}</span><span>${esc(pPlace(n))}</span><span>${fmtDate(n.at)}</span>${verif}${upd.length?`<span>${x('Dikemas kini','Updated')} ${fmtDate(lastDate(n))}</span>`:''}${isActive(n)?`<span>${x('Aktif hingga','Active until')} ${fmtDate(endOf(n))}</span>`:''}</div>
+    <h3>${esc(pTitle(n))}</h3>
+    <p class="nbody">${esc(pBody(n))}</p>
+    ${upd.map(u => `<p class="upd"><b>${x('Dikemas kini','Updated')} ${fmtDate(u.at)}:</b> ${esc(L(u.note))}</p>`).join('')}
+    ${media.length ? `<div class="gal">${media.map(pTile).join('')}</div>` : ''}
+    <div class="nact"><span class="ctxt">${srcHTML(n)}</span><button class="btn sm" type="button" onclick="copyLink('${n.id}',this)">${x('Salin pautan','Copy link')}</button></div>
+  </article>`;
+}
+function listHTML(){
+  const list = pubNews().sort((a,b) => b.at.localeCompare(a.at));
+  if(!list.length) return `<p class="empty">${state.q.trim() ? x('Tiada berita yang sepadan dengan carian ini.','No news matches this search.') : x('Belum ada berita untuk pilihan ini.','No news for this selection yet.')}</p>`;
+  let out = '', m = '';
+  list.forEach(n => { const mm = n.at.slice(0,7); if(mm!==m){ m = mm; out += `<div class="month">${fmtMonth(n.at)}</div>`; } out += pItem(n); });
+  return out;
+}
+function newsHTML(){
+  const kinds = [['all',x('Semua sumber','All sources')],['big',x('Pasukan BIG','BIG team')],['media',x('Media','Media')],['rasmi',x('Agensi rasmi','Official agencies')]];
+  const cnt = k => pubNews({s:k, q:''}).length;
+  const head = `<div class="sec-head"><h2>${x('Berita','News')}${info(`<p>${x('Berita daripada pasukan lapangan BIG, agensi rasmi dan media antarabangsa. Berita media diringkaskan oleh BIG; baca artikel penuh melalui pautan sumber.','News from BIG’s field team, official agencies and international media. Media stories are summarised by BIG; read the full article through the source link.')}</p><p>${x('Semua berita kekal dalam arkib. Amaran kecemasan di atas halaman dipaparkan selama 14 hari.','All news stays in the archive. Emergency alerts at the top of the page show for 14 days.')}</p>`)}</h2><p class="sub">${x('Dipilih dan disemak mengikut','Selected and checked under the')} <button class="lk" type="button" onclick="openEd()">${x('Dasar Editorial BIG','BIG Editorial Policy')}</button>.</p></div>`;
+  return `<section>${head}
+    <div class="ntools">
+      <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" value="${esc(state.q)}" placeholder="${x('Cari berita','Search news')}" aria-label="${x('Cari berita','Search news')}" oninput="state.q=this.value;$('newsList').innerHTML=listHTML()"></label>
+      <div class="fchips" role="group" aria-label="${x('Tapis ikut sumber','Filter by source')}">${kinds.map(([k,l]) => `<button class="fchip" type="button" aria-pressed="${state.srcF===k}" onclick="setSrc('${k}')">${l}<small>${cnt(k)}</small></button>`).join('')}</div>
+    </div>
+    <div id="newsList">${listHTML()}</div></section>`;
+}
+function dataHTML(c){
+  const body = {gaza:gazaHTML, lebanon:lebanonHTML, aceh:acehHTML, mali:maliHTML}[c]();
+  const rows = COUNTRY_SRC[c].map(k => { const s = SRC[k], a = ageInfo(s.date);
+    return `<tr><td><a href="${s.url}" target="_blank" rel="noopener">${esc(s.name)}</a></td><td>${L(s.period)}</td><td><span class="age ${a.cls}">${a.txt}</span></td><td>${L(s.kind)}</td></tr>`; }).join('');
+  return `<div><h2>${x('Maklumat lokasi terkini','Latest location information')}${info(`<p>${x('Angka daripada agensi PBB, badan kerajaan dan data terbuka. Tekan ikon i pada setiap bahagian untuk melihat sumber dan tarikh data.','Figures come from UN agencies, government bodies and open data. Tap the i icon on each section to see its source and data date.')}</p><div class="legend"><span class="age ok">${x('Terkini, ≤2 bulan','Current, ≤2 months')}</span><span class="age warn">${x('Sederhana, ≤8 bulan','Moderate, ≤8 months')}</span><span class="age crit">${x('Lama, >8 bulan','Old, >8 months')}</span></div>`)}</h2></div>
+    ${reviewLine(c)}
+    ${body}
+    <section><details class="more"><summary>${x('Semua sumber data','All data sources')}</summary>
+      <p class="sub">${x('Sumber berbeza dari segi asal dan kaedah, jadi angka daripada sumber berlainan tidak boleh dicampur terus.','Sources differ in origin and method, so figures from different sources must not be combined directly.')}</p>
+      <div class="tscroll" style="margin-top:12px"><table><thead><tr><th>${x('Sumber','Source')}</th><th>${x('Tarikh data','Data date')}</th><th>${x('Umur','Age')}</th><th>${x('Asal','Origin')}</th></tr></thead><tbody>${rows}</tbody></table></div></details></section>`;
+}
+function render(){
+  const news = state.infoView==='news';
+  if(!news && !ORDER.includes(state.country)) state.country = 'gaza';
+  const c = state.country, keys = news ? ['all',...ORDER] : ORDER;
+  const nAll = allPub().length;
+  $('main').innerHTML = `
+    <div class="seg" style="align-self:flex-start" role="group" aria-label="${x('Paparan','View')}"><button type="button" aria-pressed="${news}" onclick="setView('news')">${x('Berita','News')}${nAll?` (${nAll})`:''}</button><button type="button" aria-pressed="${!news}" onclick="setView('data')">${x('Data lokasi','Location data')}</button></div>
+    <div class="chips" role="group" aria-label="${x('Pilih lokasi','Choose location')}">${keys.map(k => `<button class="chip" type="button" aria-pressed="${k===c}" onclick="setCountry('${k}')">${k==='all' ? x('Semua lokasi','All locations') : flag(k)+COUNTRY[k][state.lang]}${k!=='all' && allPub().some(n => n.country===k && isActive(n))?`<span class="kdot" role="img" aria-label="${x('Kecemasan aktif','Active emergency')}"></span>`:''}${news?`<small>${pubNews({c:k, s:'all', q:''}).length}</small>`:''}</button>`).join('')}</div>
+    ${news ? newsHTML() : dataHTML(c)}`;
+}
+function pAlert(){
+  $('alertBar').innerHTML = allPub().filter(isActive).map(n => `<div class="alert" role="region" aria-label="${x('Kecemasan','Emergency')}">${ico('bell','var(--crit)',1)}<span><b class="k">${x('Kecemasan','Emergency')}, ${esc(pPlace(n))}:</b> ${esc(pTitle(n))}<span class="ctxt">${x('Aktif hingga','Active until')} ${fmtDate(endOf(n))}.</span></span>
+    <button class="btn" type="button" onclick="openNews('${n.id}')">${x('Baca','Read')}</button></div>`).join('');
+}
+function header(){
+  document.documentElement.lang = state.lang==='bm' ? 'ms' : 'en';
+  $('tagline').textContent = x('Maklumat kemanusiaan terkini: Gaza, Lubnan, Acheh dan Mali','Latest humanitarian information: Gaza, Lebanon, Aceh and Mali');
+  const last = [...allPub().map(lastDate), ...Object.values(CHECKED).filter(Boolean)].sort().pop();
+  $('lastup').innerHTML = last ? `${x('Kemas kini terakhir','Last updated')}: <b>${fmtDate(last)}</b>` : '';
+  $('langSeg').innerHTML = [['bm','BM'],['en','EN']].map(([k,l]) => `<button type="button" aria-pressed="${state.lang===k}" onclick="setLang('${k}')">${l}</button>`).join('');
+}
+function footer(){
+  $('foot').innerHTML = `<div class="foot">
+      <div><b>Bridging Initiative and Growth Sdn Bhd (BIG)</b><span>${x('Syarikat pelaksana projek kemanusiaan','Humanitarian project implementation company')}</span><span>${x('No. SSM','SSM No.')} 202401032510 · Kajang, Selangor, Malaysia</span></div>
+      <div><b>${x('Hubungi kami','Contact us')}</b><span class="sel">bridge.initiate@gmail.com</span><span class="sel">+6018-3848712</span></div>
+    </div>
+    <details class="more ed" id="editorial"><summary>${x('Dasar Editorial BIG','BIG Editorial Policy')}</summary><div class="edb">
+      <div><h4>${x('Sumber yang kami gunakan','Sources we use')}</h4><ul>
+        <li>${x('Badan rasmi dan kemanusiaan: agensi PBB (OCHA, UNRWA, WHO, WFP, UNICEF), kementerian kesihatan dan agensi bencana tempatan, serta Bulan Sabit Merah.','Official and humanitarian bodies: UN agencies (OCHA, UNRWA, WHO, WFP, UNICEF), local health ministries and disaster agencies, and the Red Crescent.')}</li>
+        <li>${x('Agensi berita antarabangsa: Reuters, AP, AFP dan Bernama.','International news agencies: Reuters, AP, AFP and Bernama.')}</li>
+        <li>${x('Media serantau dan Arab yang mempunyai wartawan di lapangan, seperti Al Jazeera, WAFA, Anadolu, Middle East Eye dan The New Arab.','Regional and Arab media with reporters on the ground, such as Al Jazeera, WAFA, Anadolu, Middle East Eye and The New Arab.')}</li>
+        <li>${x('Pasukan lapangan BIG.','BIG’s field team.')}</li></ul></div>
+      <div><h4>${x('Cara kami memilih dan menyemak','How we select and check')}</h4><ul>
+        <li>${x('Hanya berita yang memberi kesan kepada penduduk atau bantuan kemanusiaan: perpindahan, makanan, air, kesihatan, tempat tinggal, akses bantuan dan bencana.','Only news that affects people or humanitarian aid: displacement, food, water, health, shelter, aid access and disasters.')}</li>
+        <li>${x('Setiap angka korban atau kerosakan dinyatakan bersama sumber yang melaporkannya. Angka dalam tab Data lokasi diambil daripada badan rasmi.','Every casualty or damage figure is stated with the source that reported it. Figures in the Location data tab come from official bodies.')}</li>
+        <li>${x('Kami menggunakan pelbagai sumber, dengan had dua berita daripada satu saluran bagi setiap lokasi setiap minggu.','We use a range of sources, with no more than two stories from one outlet per location each week.')}</li>
+        <li>${x('Berita luar diringkaskan dengan perkataan kami sendiri dan dipautkan kepada sumber asal.','Outside news is summarised in our own words and linked to the original source.')}</li>
+        <li>${x('Setiap berita disemak oleh pasukan BIG sebelum diterbitkan.','Every story is reviewed by the BIG team before it is published.')}</li>
+        <li>${x('Laporan pasukan lapangan BIG ditandakan "Anggaran awal" atau "Disahkan".','Reports from BIG’s field team are marked "Preliminary estimate" or "Confirmed".')}</li></ul></div>
+      <div><h4>${x('Pembetulan','Corrections')}</h4><p>${x('Jika kami menemui kesilapan, berita itu dipinda dan ditandakan "Dikemas kini" bersama penjelasan tentang apa yang berubah. Untuk melaporkan kesilapan, hubungi kami di alamat di atas.','When we find an error, the story is amended and marked "Updated" with a note on what changed. To report an error, contact us at the address above.')}</p></div>
+    </div></details>
+    <p class="disc"><b>${x('Penafian','Disclaimer')}:</b> ${x('Berita daripada media luar diringkaskan oleh BIG dan dipautkan kepada sumber asal; kandungan asal adalah milik penerbit masing-masing. Angka daripada pihak ketiga tidak disahkan secara bebas oleh BIG.','News from outside media is summarised by BIG and linked to the original source; the original content belongs to its publisher. Third-party figures are not independently verified by BIG.')}</p>
+    <p class="copy">© 2026 Bridging Initiative and Growth Sdn Bhd. ${x('Hak cipta terpelihara.','All rights reserved.')}</p>`;
+}
+function draw(){ header(); pAlert(); render(); footer(); }
+function setCountry(k){ state.country = k; render(); }
+function setView(v){ state.infoView = v; render(); }
+function setSrc(k){ state.srcF = k; render(); }
+function openEd(){ const d = $('editorial'); if(d){ d.open = true; d.scrollIntoView({block:'start'}); } }
+function setLang(l){ state.lang = l; LS.set('big-lang', l); draw(); }
+function openNews(id){
+  const n = NEWS.find(v => v.id===id && v.public); if(!n) return;
+  Object.assign(state, {country:n.country, infoView:'news', srcF:'all', q:''}); render();
+  const el = $('news-'+id); if(el){ el.scrollIntoView({block:'start'}); el.focus({preventScroll:true}); }
+}
+function copyLink(id, btn){
+  const url = location.href.split('#')[0] + '#news-' + id;
+  const done = () => { btn.textContent = x('Pautan disalin','Link copied'); setTimeout(() => { if(btn.isConnected) btn.textContent = x('Salin pautan','Copy link'); }, 2000); };
+  const manual = () => { const box = document.createElement('input'); box.className = 'linkbox'; box.readOnly = true; box.value = url; box.setAttribute('aria-label', x('Pautan berita','News link')); btn.replaceWith(box); box.focus(); box.select(); };
+  try { navigator.clipboard.writeText(url).then(done, manual); } catch(e) { manual(); }
+}
+function fromHash(){ const h = location.hash.slice(1); if(/^news-[\w-]+$/.test(h)) openNews(h.slice(5)); }
+function fail(){ $('alertBar').innerHTML = ''; $('main').innerHTML = `<div class="err" role="alert"><b>${x('Maklumat tidak dapat dimuatkan.','Information could not be loaded.')}</b><span class="ctxt">${x('Sila cuba lagi sebentar lagi.','Please try again later.')}</span></div>`; }
+
+document.addEventListener('click', e => { document.querySelectorAll('details.info[open]').forEach(d => { if(!d.contains(e.target)) d.open = false; }); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') document.querySelectorAll('details.info[open]').forEach(d => d.open = false); });
+document.addEventListener('toggle', e => {
+  const d = e.target;
+  if(!d.matches || !d.matches('details.info') || !d.open || window.innerWidth<=560) return;
+  const t = d.querySelector('.tipbox'); t.style.left = '';
+  const r = t.getBoundingClientRect(), over = r.right - (window.innerWidth - 16);
+  if(over > 0) t.style.left = (-12 - over) + 'px';
+}, true);
+window.addEventListener('hashchange', fromHash);
+try { if(typeof NEWS==='undefined' || typeof SRC==='undefined') { header(); footer(); fail(); } else { draw(); fromHash(); } } catch(e) { console.error(e); fail(); }
+</script>
+
+</body></html>
